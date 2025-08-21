@@ -1,0 +1,6 @@
+Error: /scratch/dl_poly/classic-1.10/execute/DLPOLY.X failed in /home/jburner/binding_site_paper/codes/GALA/test/DL_poly_BS/UQEFED_P1_Xe directory with return code 1.
+Error: /scratch/dl_poly/classic-1.10/execute/DLPOLY.X failed in /home/jburner/binding_site_paper/codes/GALA/test/DL_poly_BS/Xe_bs_0000 directory with return code 1.
+Error: /scratch/dl_poly/classic-1.10/execute/DLPOLY.X failed in /home/jburner/binding_site_paper/codes/GALA/test/DL_poly_BS/Xe_bs_0001 directory with return code 1.
+UQEFED_P1_Xe
+DL_POLY terminated due to error    25
+error - wrong atom type found in CONFIG file

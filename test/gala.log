@@ -1,0 +1,28 @@
+INFO: Reading Input File
+INFO: Running GALA at: /home/jburner/binding_site_paper/codes/GALA/test
+WARNING: Invalid input. All binding sites will be printed.
+WARNING: Invalid input. Default binding energy is used.
+WARNING: Invalid input. Default RMSD algorithm will be used.
+WARNING: Invalid input. Default overlap tolerance is used. (0.3)
+WARNING: Invalid input. Default RMDS cutoff is used. (0.1)
+INFO: Using default number of steps allocation for DL Poly calculations (Step = 1)
+INFO: Using default 0.0 ps timestep
+INFO: Using default CPU allocation for DL Poly calculations (CPU = 1)
+WARNING: Using default sigma of 0.4
+WARNING: Using default radius of 0.45
+WARNING: Using default cutoff of 0.1
+INFO: Using default grid factor (1,1,1)
+INFO: No guest selected, using all guests.
+INFO: No site selected, using all sites.
+INFO: Calculating Binding Sites
+INFO: Processing bidning sites using RMSD algorithm
+INFO: Looking for DeepAPD package...
+INFO: DeepAPD package found!
+INFO: Generating probability plot using DeepAPD
+INFO: Reading Cube Data
+INFO: Looking for probability plot for guest: Xe, at site: Xex
+INFO: Attempting to read probability plot: Prob_Guest_Xe_Site_Xex_folded.cube
+INFO: Relative entropy 0.5966 — the density is spread out over several regions with similar occupancy. Could indicate multiple low-occupancy sites or weaker binding preferences.
+INFO: DL Poly terminated normally
+INFO: DL Poly Subprocesses Elapsed Time: 5.49 seconds
+INFO: Runtime completion: 19.04 seconds

@@ -85,6 +85,12 @@ Provide Guest (X) Molecule Formula (space-separated, e.g., CO2 N2):
 
 Provide Sites (Y) (space-separated, grouped by molecule, e.g., Cx,Ox Nx):
 
+-----------------------------------------------------------------------------------------
+				   ML APD Generation
+Generate adsorbate probability distribution [T/F] (default: F):
+T
+Temperature and pressure (T, p) corresponding to ML APD:
+(298, 1)
 ------------------------------------------------------------------------------------------
                                 Post Process Cleaning
 Remove DL_POLY_BS directory [T/F] (default: F):

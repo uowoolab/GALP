@@ -30,8 +30,8 @@ from scipy.stats import entropy
 warnings.filterwarnings("ignore", message="No Pauling electronegativity for ")
 np.seterr(all='ignore')
 np.seterr(over='ignore', under='ignore', divide='ignore', invalid='ignore')
-devnull = open(os.devnull, 'w')
-os.dup2(devnull.fileno(), sys.stderr.fileno())
+#devnull = open(os.devnull, 'w')
+#os.dup2(devnull.fileno(), sys.stderr.fileno())
 
 class GalaInput:
     """
@@ -115,8 +115,15 @@ class GalaInput:
         self.selected_guest = self._get_selected_guest(lines[84])
         self.selected_site = self._get_selected_site(lines[86])
 
+        # ML Probability plot generation
+        self.gen_ml_plot = lines[90].strip("\n").upper() == "T"
+        tp_tuple = tuple(map(float,
+                    lines[92].strip("\n").replace('(','').replace(')','').split(',')))
+        self.ml_temp = tp_tuple[0]
+        self.ml_pressure = tp_tuple[1]
+
         # Post Process Cleaning Section
-        self.cleaning = lines[90].strip("\n").upper() == "T"
+        self.cleaning = lines[96].strip("\n").upper() == "T"
 
     def print_attributes(instance):
         """Print all currently selected options"""
@@ -2926,14 +2933,90 @@ class GuestSites:
         sites_element = self.element
         fold = self.gala.gcmc_grid_factor
 
-        logger.info("Reading Cube Data")
-
         probability_file = f"{dir}/Prob_Guest_{guests}_Site_{sites}_folded.cube"
         probability_file_unfolded = f"{dir}/Prob_Guest_{guests}_Site_{sites}.cube"
-        print(probability_file_unfolded)
+
+        # Here, check for ML generation keyword, generate cube and write it
+        if self.gala.gen_ml_plot:
+            # If there is a cube file in the directory, log and error and exit
+            if os.path.exists(probability_file):
+                logger.info("A probability plot already exists in the present directory! " +
+                            "Please remove the probability plot before continuing to generate" +
+                            " a probability plot using DeepAPD.")
+                print("Error, check logs... exiting")
+                exit()
+            from pymatgen.io.ase import AseAtomsAdaptor
+            from ase.io import read as ase_read
+            logger.info("Looking for DeepAPD package...")
+            try:
+                sys.path.append(os.path.join(os.path.dirname(__file__), "DeepAPD"))
+                from DeepAPD import run_inference
+            except ModuleNotFoundError:
+                logger.info("DeepAPD package not found, cannot use ML prediction!")
+                print("Error, check logs... exiting")
+                exit()
+
+            logger.info("DeepAPD package found!")
+            logger.info("Generating probability plot using DeepAPD")
+
+            if guests == "O":
+                if self.gala.ml_pressure == 1.0:
+                    ml_guest = "CH4_1bar"
+                elif self.gala.ml_pressure == 65.0:
+                    ml_guest = "CH4_65bar"
+            elif guests == "Xe":
+                if self.gala.ml_pressure == 1.0:
+                    ml_guest = "Xe_1bar"
+            else:
+                logger.info("Guest selection not supported for ML prediction! \n" + 
+                        "The following are supported: \n" +
+                        "\t\tXe @ 1 bar" + 
+                        "\n\t\tCH4 @ 1 bar" + 
+                        "\n\t\tCH4 @ 65 bar")
+                print("Error, check logs... exiting")
+                exit()
+            print(ml_guest)
+           
+            # Automatically extract structure from a cif file in the cwd
+            # Check that only one cif file exists, or it is ambiguous
+            import glob
+            _cifs = glob.glob(os.path.join(self.gala.directory, "*.cif"))
+            if len(_cifs) == 0:
+                logger.info("No cif files found! " + 
+                            "Ensure a cif file is present to use ML prediction")
+                print("Error, check logs... exiting")
+                exit()
+            if len(_cifs) > 1:
+                logger.info("More than one cif file found! " +
+                            "Ensure only one cif file is present to use ML prediction")
+                print("Error, check logs.... exiting")
+                exit()
+            
+            #self._structure = Structure.from_file(_cifs[0])
+            #ase_atoms = AseAtomsAdaptor.get_atoms(self._structure)
+            ase_atoms = ase_read(_cifs[0])
+            self._structure = AseAtomsAdaptor.get_structure(ase_atoms)
+            grid_dim = []
+            for dim in self._structure.lattice.abc:
+                grid_dim.append(int(np.ceil(dim / 0.15)))
+
+            preds = run_inference.gen_cube(guest=ml_guest,
+                                           atoms=ase_atoms,
+                                           grid=grid_dim)
+            preds = preds.detach().cpu().numpy()
+            preds /= preds.sum()
+
+            self.cube = VolumetricData(structure=self._structure,
+                                       data={"total": preds})
+            
+
+        logger.info("Reading Cube Data")
         logger.info(
             f"Looking for probability plot for guest: {guests}, at site: {sites}"
         )
+
+        if not os.path.exists(probability_file) and self.cube:
+            self.cube.to_cube(probability_file)
 
         if os.path.exists(probability_file):
             logger.info(
