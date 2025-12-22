@@ -1,0 +1,6 @@
+Prob_Guest_CO2_Site_Cx_folded.cube
+	Entropy: 0.7265
+Prob_Guest_CO2_Site_Ox_folded.cube
+	Entropy: 0.7883
+Prob_Guest_C_Site_CH4_folded.cube
+	Entropy: 0.6925

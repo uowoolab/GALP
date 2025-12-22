@@ -1,0 +1,37 @@
+INFO: Reading Input File
+INFO: Running GALP at: /Users/oliviermarchand/Desktop/GALA2/Examples/example_outputs/raspa/cpl-1
+WARNING: Invalid input. All binding sites will be printed.
+WARNING: Invalid input. Default binding energy is used.
+WARNING: Invalid input. Default RMSD algorithm will be used.
+WARNING: Invalid input. Default overlap tolerance is used. (0.3)
+WARNING: Invalid input. Default RMDS cutoff is used. (0.1)
+INFO: Using default number of steps allocation for DL Poly calculations (Step = 1)
+INFO: Using default 0.0 ps timestep
+WARNING: Invalid input. Default gcmc cutoff is used. (12.500000)
+INFO: Using default CPU allocation for DL Poly calculations (CPU = 1)
+WARNING: Using default sigma of 0.4
+WARNING: Using default radius of 0.45
+WARNING: Using default cutoff of 0.1
+INFO: Using default grid factor (1,1,1)
+INFO: Updated Grid Factors from simulation.json. Using: (6, 2, 3)
+INFO: Updated guests from simulation.json. Using: ['C2H2']
+INFO: Calculating Binding Sites
+INFO: Processing bidning sites using RMSD algorithm
+INFO: Reading Cube Data
+INFO: Looking for probability plot for guest:
+	Prob_Guest_C2H2_Site_Cx.cube
+	or
+	Prob_Guest_C2H2_Site_Cx_unfolded.cube
+INFO: Attempting to read probability plot: Prob_Guest_C2H2_Site_Cx_folded.cube
+INFO: Relative entropy 0.4384 — the distribution is very localized, likely centred around a few main binding sites.
+INFO: Reading Cube Data
+INFO: Looking for probability plot for guest:
+	Prob_Guest_C2H2_Site_Hx.cube
+	or
+	Prob_Guest_C2H2_Site_Hx_unfolded.cube
+INFO: Attempting to read probability plot: Prob_Guest_C2H2_Site_Hx_folded.cube
+INFO: Relative entropy 0.5087 — the density is spread out over several regions with similar occupancy. Could indicate multiple low-occupancy sites or weaker binding preferences.
+INFO: Generated RASPA FIELD at /Users/oliviermarchand/Desktop/GALA2/Examples/example_outputs/raspa/cpl-1/FIELD
+INFO: DL Poly terminated normally
+INFO: DL Poly Subprocesses Elapsed Time: 1.11 seconds
+INFO: Runtime completion: 1.86 seconds

@@ -1,0 +1,12 @@
+Molecule: Xe
+Molecule Coordinates:
+[[0. 0. 0.]]
+Sites:
+Site 1: Site Label: Xex, Element: Xe, Coords: [(0.0, 0.0, 0.0)], Charge: [0.0]
+Maxima:
+	Maxima 1: Value: 0.0007604356401187276
+		  Cartesian Coordinates: [3.627936826749263, 2.7833604729582793, 11.332416227373123]
+		  Fractional Coordinates: [0.5, 0.5, 0.5032679738562091]
+	Maxima 2: Value: 0.0007656914607549238
+		  Cartesian Coordinates: [0.0, 0.0, 0.0]
+		  Fractional Coordinates: [0.0, 0.0, 0.0]

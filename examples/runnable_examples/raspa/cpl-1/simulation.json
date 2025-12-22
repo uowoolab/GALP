@@ -1,0 +1,37 @@
+{
+  "SimulationType" : "MonteCarlo",
+  "NumberOfCycles" : 3000000,
+  "NumberOfInitializationCycles" : 100000,
+  "PrintEvery" : 10000,
+
+  "Systems" : [
+    {
+      "Type" : "Framework",
+      "Name" : "CPL-1",
+      "NumberOfUnitCells" : [6, 2, 3],
+      "ChargeMethod" : "Ewald",
+      "ExternalTemperature": 170.0,
+      "ExternalPressure": 10000.0,
+      "CutOffVDW": 12.5,
+      "ComputeDensityGrid" : true,
+      "SampleDensityGridEvery" : 10,
+      "WriteDensityGridEvery" : 10000,
+      "DensityGridSize" : [198, 270, 216],
+      "DensityGridPseudoAtomsList" : ["Cx", "Hx"],
+      "DensityGridBinning": "Equitable"
+    }
+  ],
+
+  "Components" : [
+    {
+      "Name" : "C2H2",
+      "FugacityCoefficient" : 1.0,
+      "IdealGasRosenbluthWeight" : 1.0,
+      "TranslationProbability" : 0.5,
+      "ReinsertionProbability" : 0.5,
+      "SwapProbability" : 1.0,
+      "WidomProbability" : 1.0,
+      "CreateNuMberofmolecules" : 0
+    }
+  ]
+}

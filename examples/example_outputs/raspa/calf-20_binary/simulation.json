@@ -1,0 +1,49 @@
+{
+  "SimulationType" : "MonteCarlo",
+  "NumberOfCycles" : 1000000,
+  "NumberOfInitializationCycles" : 10000,
+  "PrintEvery" : 10000,
+
+  "Systems" : [
+    {
+      "Type" : "Framework",
+      "Name" : "CALF-20",
+      "NumberOfUnitCells" : [2, 2, 2],
+      "ChargeMethod" : "Ewald",
+      "ExternalTemperature": 296.0,
+      "ExternalPressure": 1000000.0,
+      "CutOff": 6.25,
+      "ComputeDensityGrid" : true,
+      "SampleDensityGridEvery" : 10,
+      "WriteDensityGridEvery" : 1000,
+      "DensityGridSize" : [240, 198, 192],
+      "DensityGridPseudoAtomsList" : ["CH4", "Cx", "Ox"],
+      "DensityGridBinning": "Equitable"
+    }
+  ],
+
+  "Components" : [
+    {
+      "Name" : "CO2",
+      "MolFraction" : 0.25,
+      "IdealGasRosenbluthWeight" : 1.0,
+      "TranslationProbability" : 0.5,
+      "RotationProbability" : 0.5,
+      "ReinsertionProbability" : 0.5,
+      "SwapProbability" : 1.0,
+      "WidomProbability" : 1.0,
+      "CreateNumberOfMolecules" : 0
+    },
+    {
+      "Name" : "methane",
+      "MolFraction" : 0.75,
+      "IdealGasRosenbluthWeight" : 1.0,
+      "TranslationProbability" : 0.5,
+      "RotationProbability" : 0.5,
+      "ReinsertionProbability" : 0.5,
+      "SwapProbability" : 1.0,
+      "WidomProbability" : 1.0,
+      "CreateNumberOfMolecules" : 0
+    }
+  ]
+}
