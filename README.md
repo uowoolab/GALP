@@ -105,6 +105,18 @@ GALP makes use of standard Python libraries and scientific packages for file han
 
 Dependencies specific to the machine learning based predictive workflow are documented separately in the corresponding section and are not required for standard GALP usage.
 
+## External Simulation
+
+### DL POLY Classic
+
+The binding energy calculations performed within the GALP workflow rely on molecular dynamics simulations. In this work, **DL POLY Classic** was selected due to its simplicity, stability, and well documented user manual. **DL POLY Classic is required only for the energetic evaluation stage of GALP**, and is not needed for probability analysis or binding site identification alone.
+
+This work uses **DL POLY Classic version 1.10**, obtained from the preserved DL POLY Classic GitLab repository:
+
+https://gitlab.com/DL_POLY_Classic/dl_poly
+
+Users should follow the installation instructions provided in the repository README to compile the Classic executable. In the GALP workflow, the compiled executable (`DL_POLY.X`) is located in the `execute/` directory of the DL POLY Classic source tree and must be provided explicitly in the GALP input file.
+
 ## Installation
 
 1. Clone the repository:
