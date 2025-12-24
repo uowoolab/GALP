@@ -8,7 +8,7 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/uowoolab/GALP/blob/main/images/GALP.png">
+  <a href="https://github.com/uowoolab/GALP/main/images/GALP.png">
     <img src="Images/GALP.png" alt="Logo" width="100%">
   </a>
 
