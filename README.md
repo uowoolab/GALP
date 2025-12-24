@@ -140,7 +140,7 @@ Dependencies specific to the machine learning based predictive workflow are docu
    ```
 
 Detailed usage instructions, engine specific options, and example workflows are provided in
-the [docs](https://github.com/uowoolab/GALP/docs)
+the [docs](https://github.com/uowoolab/GALP/tree/main/docs)
 
 ## License
 
