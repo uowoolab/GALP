@@ -18,7 +18,7 @@ Ensure that the following files are available:
 Both files may reside in the same directory, or `GALP.py` may be located elsewhere and called via a relative or absolute path.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/uowoolab/GALP/main/images/Small_Scalle.png" alt="Small scale workflow" width="100%">
+  <img src="https://raw.githubusercontent.com/uowoolab/GALP/main/images/Small_Scale.png" alt="Small scale workflow" width="100%">
 </p>
 
 #### Execution Steps
