@@ -18,7 +18,7 @@ Authors and Contributions:
 Original Creation Acknowledgment:
 - The original Legacy GALA (vectorial) algorithm was created by Tom Burns, PhD
 ------------------------------------------------------------------------------------------
-                                    General Input
+                                General Input
 Software Choice: [FASTMC, RASPA]:
 
 Input Files Path:
@@ -30,7 +30,7 @@ Maximum Binding Sites Energy (integer, optional, default: -100 kJ/mol):
 Generate CIF for high occupancy sites (default: F); useful for structural analysis.
 
 ------------------------------------------------------------------------------------------
-                                    Binding Site Algorithm
+                                Binding Site Algorithm
 Algorithm Selection: [0: Legacy GALA (vectorial), 1: RMDS] (default: 1):
 
 If RMDS is selected, additional options:
@@ -42,7 +42,7 @@ Exclude hydrogen in fitting algorithm (default: F); affects binding site identif
 
 ------------------------------------------------------------------------------------------
                                 MD Parameters
-MD Program Executable: < Enter executable name, e.g., DLPOLY.X >:
+MD Program Executable: < Enter executable name or path, e.g., DLPOLY.X >:
 DLPOLY.X
 Optimize Binding Sites (OBS) [T/F] (default: F):
 
@@ -55,7 +55,7 @@ Cutoff (Angstrom) (default: 12.5):
 Dedicated CPUs for MD simulation(default: 1):
 
 ------------------------------------------------------------------------------------------
-                            GCMC Analysis Parameters
+                                GCMC Analysis Parameters
 Sigma (default: 0.4):
 
 Radius (default: 0.45): 
@@ -69,7 +69,7 @@ Grid Factors (Required if "Write folded" is T or unfolded plots are provided): <
 Write Smoothed [T/F] (default: F):
 
 -----------------------------------------------------------------------------------------
-				            ML APD Generation
+				                ML APD Generation
 Generate adsorbate probability distribution [T/F] (default: F):
 
 Temperature and pressure (T, p) corresponding to ML APD:

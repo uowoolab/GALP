@@ -126,16 +126,33 @@ class GalaInput:
                     )
             except (KeyError, TypeError, IndexError):
                 pass
+            system_path = ["Systems", 0]
             try:
-                cutoff = self._get_json_option(json_file, ["Systems", "CutOff"])
+                cutoff = self._get_json_option(json_file, system_path + ["CutOff"])
                 if isinstance(cutoff, (int, float)):
-                    self.gcmc_cutoff = float(cutoff)
+                    self.md_cutoff = float(cutoff)
                     self._log_temp(
                         "INFO",
-                        f"Updated GCMC Cutoff from simulation.json. Using: {self.gcmc_cutoff}",
+                        f"Updated MD Cutoff from simulation.json (CutOff). Using: {self.md_cutoff}",
                     )
+                    return
             except (KeyError, TypeError, IndexError):
                 pass
+            try:
+                cutoff = self._get_json_option(json_file, system_path + ["CutOffVDW"])
+                if isinstance(cutoff, (int, float)):
+                    self.md_cutoff = float(cutoff)
+                    self._log_temp(
+                        "INFO",
+                        f"Updated MD Cutoff from simulation.json (CutOffVDW). Using: {self.md_cutoff}",
+                    )
+                    return
+            except (KeyError, TypeError, IndexError):
+                pass
+            self._log_temp(
+                "INFO",
+                f"No cutoff found in simulation.json. Using default MD cutoff: {self.md_cutoff}",
+            )
             try:
                 components = self._get_json_option(json_file, ["Components"])
                 if isinstance(components, list):
@@ -1315,7 +1332,7 @@ class GuestMolecule(Molecule):
             logger.info("Processing binding sites using legacy algorithm")
             self.calculate_binding_sites_legacy()
         elif self.gala.bs_algorithm == 1:
-            logger.info("Processing bidning sites using RMSD algorithm")
+            logger.info("Processing binding sites using RMSD algorithm")
             self.calculate_binding_sites_rmsd()
         else:
             logger.error("Unknown input")
@@ -3496,9 +3513,9 @@ class GuestSites:
         logger.info("Reading Cube Data")
         logger.info(
             "Looking for probability plot for guest:\n"
-            f"\tProb_Guest_{guests}_Site_{sites}.cube\n"
-            "\tor\n"
-            f"\tProb_Guest_{guests}_Site_{sites}_unfolded.cube"
+            f"Prob_Guest_{guests}_Site_{sites}.cube\n"
+            "or\n"
+            f"Prob_Guest_{guests}_Site_{sites}_unfolded.cube"
         )
 
         if not os.path.exists(probability_file) and self.cube:
