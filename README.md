@@ -9,7 +9,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/uowoolab/GALP/main/images/GALP.png">
-    <img src="Images/GALP.png" alt="Logo" width="100%">
+    <img src="images/GALP.png" alt="Logo" width="100%">
   </a>
 
 <h3 align="center">Guest Atom Localizer from Probabilities (GALP)</h3>
