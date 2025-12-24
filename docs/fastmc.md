@@ -54,7 +54,7 @@ For large scale studies, folded probability grids are recommended unless explici
 
 Example FastMC based workflows are provided in the repository:
 
-- Example 1: [cald-15](https://github.com/uowoolab/GALP/tree/main/examples/example_outputs/fastmc/calf-15)
+- Example 1: [calf-15](https://github.com/uowoolab/GALP/tree/main/examples/example_outputs/fastmc/calf-15)
 - Example 2: [calf-16](https://github.com/uowoolab/GALP/tree/main/examples/example_outputs/fastmc/calf-16)
 - Example 3: [calf-20](https://github.com/uowoolab/GALP/tree/main/examples/example_outputs/fastmc/calf-20)
 
