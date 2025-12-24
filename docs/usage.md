@@ -42,7 +42,7 @@ Both files may reside in the same directory, or `GALP.py` may be located elsewhe
 For extensive analysis, utilize sbatch to enable parallel execution and optimize computation time. In this method, leave the absolute path in the `GALP.inp` file empty.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/uowoolab/GALP/main/images/Large_Scale.png" alt="Large scale workflow" width="100%">
+  <img src="https://github.com/uowoolab/GALP/blob/main/images/Large_Scale.png" alt="Large scale workflow" width="100%">
 </p>
 
 #### Execution Steps
