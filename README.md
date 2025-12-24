@@ -17,7 +17,7 @@
   <p align="center">
     GALP is an automated tool that identifies and fits guest binding sites from GCMC probability distributions in porous materials.
     <br />
-    <a href="https://github.com/uowoolab/GALP/docs"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/uowoolab/GALP/tree/main/docs"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/uowoolab/GALP/tree/main/examples">View Demo</a>
